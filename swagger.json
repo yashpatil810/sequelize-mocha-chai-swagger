@@ -1,0 +1,75 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Simple API",
+		"description": "A simple API to learn how to write OpenAPI Specification"
+	},
+	"schemes": [
+		"http",
+		"https"
+	],
+	"host": "localhost:5003",
+    "basePath": "/",
+    "tags":[
+        {
+            "name": "College",
+            "description": "College APIs"
+        },
+        {
+            "name": "University",
+            "description": "University APIs"
+        }
+    ],
+	"paths": {
+		"/get-college": {
+			"get": {
+                "tags":[
+                    "College"
+                ],
+				"summary": "Get colleges",
+				"description": "Returns college list",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "not found"
+					}
+				}
+			}
+		},
+		"/add-uni": {
+			"post": {
+                "tags": [
+                    "University"
+                ],
+				"summary": "Add Uni",
+				"description": "Adds University",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Created user object",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string"
+								},
+								"region": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"default": {
+						"description": "successful operation"
+					}
+				}
+			}
+		}
+	}
+}
